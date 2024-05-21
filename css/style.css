@@ -1,0 +1,20 @@
+body{
+	/*alt satır html kısmındaki font ile bağlantı sağlar.Kaynak olarak google fontu kullandım*/
+	font-family: 'Nunito Sans', sans-serif;
+	margin: 0px;
+	/*bu alttaki özellik sayesinde site telefona yüklenince yandaki gereksiz boşluklar görünmüyor.*/
+	overflow-x:hidden ;
+}
+/* alttaki kodlar inputların üzerine gelice renginin değişmesini sağlıyor.*/
+input[type=text]:focus, input[type=email]:focus{
+	background-color: lightblue;
+}
+.upside{
+	background-image: url(../img/aerial-view-business-team.jpg);
+	height: 100vh;
+	width: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
