@@ -101,3 +101,33 @@ span{
 	font-weight: 600;
 	float:left;
 }
+#education{
+	padding-top: 100px;
+	background-color:rgba(122, 122, 122, 0.1056);
+	padding: 0px;
+	margin-top: 150px;
+	text-align: center;
+	height: 700px;
+}
+.educationTitle{
+	padding-top: 50px;
+	font-size: 50px;
+}
+.titleCard{
+	font-size: 25px;
+	color:#003666;
+	padding: 20px;
+}
+.cardp{
+	color:#888;
+}
+/*alttaki yapı sayesinde bütün görsellerin bouyutları ve genişlikleri eşit şekilde geliyor.*/
+.card img {
+	height: 220px; /* Uzunluğu istediğiniz değeri ayarlayın */
+	object-fit: cover; /* Resimleri oranlarına göre kesecek */
+  }  
+/*alt satırdaki cardın hover özelliği cardların üzerine 
+mouse gelince 1px siyah laşmasını sağlıyor.*/
+.card:hover{
+	border: 1px solid black;
+}

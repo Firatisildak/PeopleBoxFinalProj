@@ -7,7 +7,6 @@
         <div class="row">
             <div class="home-content col-md-4" id="main_Contant">
                 <span class="multiple-text text-white"></span>
-                hdvrılughrlıugherjgrhgjrhgrghrghjrjgherog
             </div>
         </div>
     </div>
@@ -15,7 +14,9 @@
 <?php
     include("views/normalPanel/about.php");
     include("views/normalPanel/education.php");
+    include("libs/functions/scriptLibrary.php");
 ?>
+
 </body>
 
 </html>

@@ -22,7 +22,7 @@
 
                 //alt'taki kod bloğu bizim array yapısında kullandığımız foreach yapısı bizim her bir $menuItems her seferinde $item değişkenine atayıp veritabaındaki veri kadar işlem yapıyor.
                 foreach ($menuItems as $item) {
-                    echo'<li class="nav-item d-flex">
+                    echo '<li class="nav-item d-flex">
                             <a class="nav-link active" aria-current="page" href="' . $item['link'] . '">
                             <i ' . $item['icon'] . '></i>' . $item['text'] . '</a>
                             <span class="brace">|</span>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +14,12 @@
   <!--alt satır yazı fontu için seçmiş olduğum kütüphane linki-->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+  <!--alt satırdaki bağlantıyı own Carouselden indirmiş olduğum owl dosyasındaki bağlantılar ile bağladım card yapıları kendi kendine kaya bilsin diye.   CSS kısmı-->
+  <link rel="stylesheet" href="packets/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="packets/owl/owl.theme.default.min.css">
 </head>
+
 <body>
-<?php
-    include("libs/functions/database_Connection.php");
-?>
+  <?php
+  include("libs/functions/database_Connection.php");
+  ?>
