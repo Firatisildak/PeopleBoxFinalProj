@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg nav-bg"><!--yandaki nav-bg classı bizim navbarın rengini css kısmında değiştirmemiz için kullandığımız bir classtır. -->
     <div class="container">
-        <img id="logoSize" src="img/benimLogo.png" alt="logo">
+        <img id="logoSize" src="views/img/benimLogo.png" alt="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,11 +22,11 @@
 
                 //alt'taki kod bloğu bizim array yapısında kullandığımız foreach yapısı bizim her bir $menuItems her seferinde $item değişkenine atayıp veritabaındaki veri kadar işlem yapıyor.
                 foreach ($menuItems as $item) {
-                    echo '<li class="nav-item d-flex">';
-                    echo '<a class="nav-link active" aria-current="page" href="' . $item['link'] . '">';
-                    echo '<i ' . $item['icon'] . '></i>' . $item['text'] . '</a>';
-                    echo '<span class="brace">|</span>';
-                    echo '</li>';
+                    echo'<li class="nav-item d-flex">
+                            <a class="nav-link active" aria-current="page" href="' . $item['link'] . '">
+                            <i ' . $item['icon'] . '></i>' . $item['text'] . '</a>
+                            <span class="brace">|</span>
+                        </li>';
                 }
                 ?>
             </ul>

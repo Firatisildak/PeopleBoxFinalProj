@@ -10,11 +10,94 @@ input[type=text]:focus, input[type=email]:focus{
 	background-color: lightblue;
 }
 .upside{
-	background-image: url(../img/aerial-view-business-team.jpg);
+	background-image: url(../views/img/aerial-view-business-team.jpg);
 	height: 100vh;
 	width: 100%;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+}
+.upside2{
+	background-image: url(../views/img/aerial-view-business-team.jpg); 
+	height: 100vh;
+	width: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+/*alttaki yapı nav ın yani menünün arka plan resmini değiştiriyor.*/
+.leftSide{
+	float: left;
+}
+.nav-bg{
+	background-color:rgba(122, 122, 122, 0.56);
+}
+#logoSize{
+	max-width: 100%;
+    height: 60px;
+}
+.menu_TextColor{
+	color:white;
+}
+.brace{
+	font-size: 20px;
+}
+ nav a:link{
+ 	text-decoration: none;
+ 	margin-right: 25px;
+ 	color:#003666;
+ }
+ nav a:hover{
+ 	/*alt satır menüdeki kısımların üzerine gidince altını çiziyor.*/
+ 	border-bottom: 2px solid black;
+ }
+ nav a:visited{
+	text-decoration: none;
+	margin-right: 25px;
+	color:black;
+ }
+ .icon{
+	margin-right: 7px;
+	/*alt satır ikonlarımıza boyut veriyor*/
+	font-size: 16px;
+}
+.nav-item .nav-link.active{
+	color: white;
+}
+/*Bu altadaki yapıda anasayfada yazmış olduğumuz içeriği düzenli bir konuma ve renge çevirdim*/
+#main_Contant{
+	position: absolute;
+	top:60%;
+	left:58%;
+	transform: translate(-55%,-55%);
+	color:white;
+	font-size: 20px;
+}
+.h3l{
+	margin-top: 150px;
+	font-size: 55px;
+	color:#003666;
+	/*alt satır hakkımızda yazısının daha bulanık ve gölgeli bir hal almasını sağlar*/
+	text-shadow: 0px 1px 1px;
+    font-weight: 600;
+	text-align: center;
+}
+#aboutWrite{
+	color:#999;
+	text-align: center;
+	font-size: 15px;
+	line-height: 1.8;
+	/*alt satır yazı kalınlığını belirliyor*/
+	font-weight: 100;
+}
+/*alt satır hem bizim hamburger barımızın fontunu hemde bizim eğitimler kısmındaki sağa ve sola gitme ikonunun boyutunu belirliyor. */
+span{
+	font-size: 50px;
+	margin-right: 7px;
+	line-height: 42px;
+	color:#003666;
+	font-weight: 600;
+	float:left;
 }
