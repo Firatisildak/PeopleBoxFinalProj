@@ -131,3 +131,40 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 .card:hover{
 	border: 1px solid black;
 }
+#educator{
+	background-color:gray;
+	padding:50px;
+	text-align: center;
+}
+#educatorh3{
+	color:black;
+}
+/*alttaki class fotoğrafı ovalleştirir*/
+.oval{
+	border-radius: 50%;
+}
+.educatorName{
+	color:white;
+	font-size: 25px;
+	/*alt satır bizim alttaki yazıdan isim kısmımızın 12 px boşluk bırakmamızı sağlıyor*/
+	margin-bottom:12px;
+}
+/*alt class bizim yazımız boyunu ve rengi değiştirdik*/
+.educatorp{
+ color:black;
+ font-size:18px ;
+}
+.social{
+    color:black;
+    /*alt satır bizim ikonlarımızın 1px ve beyaz bir kutunun içine girmesini sağlıyor*/
+    border: 2px solid black;
+    /*alt satır bizim kutularımızın içinde 10px'lik bir iç boşluk yaratır.*/
+    padding: 10px;
+    width: 50px;/*bu satır bizim kuru genişliğini arttırır.*/
+    border-radius: 5px;/*bu satır kutularımıza ovellik katar*/
+    margin:5px 10px;
+}
+/*alttaki hover özelliği mouse ile ikonların üzerine gelindiğindeki özellikleri ile oynuyor.*/
+.social:hover{
+	background-color: #888;
+}
