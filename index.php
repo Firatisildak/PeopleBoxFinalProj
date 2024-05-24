@@ -15,8 +15,10 @@
     include("views/normalPanel/about.php");
     include("views/normalPanel/education.php");
     include("views/normalPanel/educator.php");
+    include("views/normalPanel/contact.php");
     include("libs/functions/scriptLibrary.php");
     include("libs/functions/javascriptcode.php");
+    
     
 ?>
 

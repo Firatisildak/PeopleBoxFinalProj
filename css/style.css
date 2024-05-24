@@ -1,8 +1,6 @@
 body{
-	/*alt satır html kısmındaki font ile bağlantı sağlar.Kaynak olarak google fontu kullandım*/
 	font-family: 'Nunito Sans', sans-serif;
 	margin: 0px;
-	/*bu alttaki özellik sayesinde site telefona yüklenince yandaki gereksiz boşluklar görünmüyor.*/
 	overflow-x:hidden ;
 }
 /* alttaki kodlar inputların üzerine gelice renginin değişmesini sağlıyor.*/
@@ -167,4 +165,75 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 /*alttaki hover özelliği mouse ile ikonların üzerine gelindiğindeki özellikleri ile oynuyor.*/
 .social:hover{
 	background-color: #888;
+}
+#communication{
+	background: #666;
+	background-size: cover;
+	padding: 50px;
+	height: auto;
+}
+#hColor{
+	color: white;
+	text-align: center;
+}
+#opaqueRow{
+    margin-top: 50px;
+	/*alt satır bizim iletişim kısmını opaklaştırıyor.*/
+    background: rgba(255, 255, 255, 0.4);
+}
+#rowInformation{
+	margin-top: 70px;
+	padding-top: 50px;
+	background: rgba(255, 255, 255, 0.8);
+}
+/*alt satır Tüm haklar saklıdır yazısının üzerinde oynama yapar.*/
+#copyright{
+    color: black;
+    font-size: 20px;
+    letter-spacing: 2px;
+    /*alt satır alttan yani ikonların üzerinden 15px uzaklaşır*/
+    margin-bottom: 15px;
+    background-position: center center ;
+}
+/*alttaki up kısmı bizim anasayfaya geri gitmemize yarayan ikonun özellikleri ile oynar.*/
+#up{
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 8px 10px;
+    margin-top: 20px;
+}
+/*alt satır bizim haritamıza biçim vermemize yardımcı oluyor.*/
+.map-area{
+	width: 100%;
+	height: 256px;
+	background: rgba(255, 255, 255, 0.0);
+	/*alt satır bizim bir kutu oluşturmamıza yarıyor ama harita bu kutuyu tam doldurmuyor.*/
+	box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+}
+/*altdaki yapı bizim haritamzın oluşan kutunun içine sığmasını sağlamak*/
+.map-area iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+/*altdaki yapı bizim haritamızın responsive bir yapı kazanmasını sağlamak.*/
+@media(max-width: 991px){
+	.contact-form{
+		margin-bottom: 30px;
+	}
+	.map-area{
+		width: 100%;
+		height: 400px;
+	}
+	.nav-bg{
+		background-color:rgba(122, 122, 122, 0.96);
+	}
+}
+/*alttaki yapı ile menü kısmındaki dikey çizgilerin bizim hambürger butonumuzda görünmemesi için yazdığım kod.*/
+@media screen and (max-width: 991px){
+	.brace{
+		display:none;
+	}
 }
