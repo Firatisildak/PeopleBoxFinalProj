@@ -1,7 +1,8 @@
 <div class="upside">
     <?php
-    include("views/normalPanel/header.php");
-    include("views/normalPanel/navbar.php");
+    include("libs/functions/user_all_func.php");
+    include("views/normal_panel/header.php");
+    include("views/normal_panel/navbar.php");
     ?>
     <div class="container">
         <div class="row">
@@ -12,12 +13,12 @@
     </div>
 </div>
 <?php
-    include("views/normalPanel/about.php");
-    include("views/normalPanel/education.php");
-    include("views/normalPanel/educator.php");
-    include("views/normalPanel/contact.php");
-    include("libs/functions/scriptLibrary.php");
-    include("libs/functions/javascriptcode.php");
+    include("views/normal_panel/about.php");
+    include("views/normal_panel/education.php");
+    include("views/normal_panel/educator.php");
+    include("views/normal_panel/contact.php");
+    include("libs/functions/script_library.php");
+    include("libs/functions/javascript_code.php");
     
     
 ?>

@@ -39,4 +39,7 @@
       </div>
     </div>
   </div>
+  <?php
+   include("views/normal_panel/footer.php");
+  ?>
 </section>

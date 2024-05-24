@@ -19,7 +19,7 @@
             // alttaki her satırda "data-merge=1.5" özelliğini kullandım çünkü cardların own yapısındaki şekle oturması gerekiyor. kullandığım fotoğrafların yapısı own yapısına büyük geldi ve ben bu sorunu böyle çözdüm.
             foreach ($menuItems2 as $item) {
                 echo '<div class="card" data-merge="1.5">
-                <img src="views/img/education_Img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid">
+                <img src="img/education_img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid">
                 <h5 class="titleCard">' . $item["title"] . '</h5>
                 <p class="cardp">' . $item["write"] . '</p>
                 <a href="education_Detail.php?lesson_id=' . $item["lesson_id"] . '&educator_id=' . $item["educator_id"] . '"><h5>Devamını Oku</h5></a>

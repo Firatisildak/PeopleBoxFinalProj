@@ -8,7 +8,7 @@ input[type=text]:focus, input[type=email]:focus{
 	background-color: lightblue;
 }
 .upside{
-	background-image: url(../views/img/aerial-view-business-team.jpg);
+	background-image: url(../img/aerial-view-business-team.jpg);
 	height: 100vh;
 	width: 100%;
 	background-size: cover;
@@ -16,16 +16,6 @@ input[type=text]:focus, input[type=email]:focus{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-.upside2{
-	background-image: url(../views/img/aerial-view-business-team.jpg); 
-	height: 100vh;
-	width: 100%;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-}
-/*alttaki yapı nav ın yani menünün arka plan resmini değiştiriyor.*/
 .leftSide{
 	float: left;
 }
@@ -34,7 +24,7 @@ input[type=text]:focus, input[type=email]:focus{
 }
 #logoSize{
 	max-width: 100%;
-    height: 60px;
+    height: 65px;
 }
 .menu_TextColor{
 	color:white;
@@ -48,8 +38,7 @@ input[type=text]:focus, input[type=email]:focus{
  	color:#003666;
  }
  nav a:hover{
- 	/*alt satır menüdeki kısımların üzerine gidince altını çiziyor.*/
- 	border-bottom: 2px solid black;
+ 	border-bottom: 2px solid #fff;
  }
  nav a:visited{
 	text-decoration: none;
@@ -58,13 +47,11 @@ input[type=text]:focus, input[type=email]:focus{
  }
  .icon{
 	margin-right: 7px;
-	/*alt satır ikonlarımıza boyut veriyor*/
 	font-size: 16px;
 }
 .nav-item .nav-link.active{
 	color: white;
 }
-/*Bu altadaki yapıda anasayfada yazmış olduğumuz içeriği düzenli bir konuma ve renge çevirdim*/
 #main_Contant{
 	position: absolute;
 	top:60%;
@@ -77,7 +64,6 @@ input[type=text]:focus, input[type=email]:focus{
 	margin-top: 150px;
 	font-size: 55px;
 	color:#003666;
-	/*alt satır hakkımızda yazısının daha bulanık ve gölgeli bir hal almasını sağlar*/
 	text-shadow: 0px 1px 1px;
     font-weight: 600;
 	text-align: center;
@@ -87,10 +73,8 @@ input[type=text]:focus, input[type=email]:focus{
 	text-align: center;
 	font-size: 15px;
 	line-height: 1.8;
-	/*alt satır yazı kalınlığını belirliyor*/
 	font-weight: 100;
 }
-/*alt satır hem bizim hamburger barımızın fontunu hemde bizim eğitimler kısmındaki sağa ve sola gitme ikonunun boyutunu belirliyor. */
 span{
 	font-size: 50px;
 	margin-right: 7px;
@@ -119,13 +103,10 @@ span{
 .cardp{
 	color:#888;
 }
-/*alttaki yapı sayesinde bütün görsellerin bouyutları ve genişlikleri eşit şekilde geliyor.*/
 .card img {
-	height: 220px; /* Uzunluğu istediğiniz değeri ayarlayın */
-	object-fit: cover; /* Resimleri oranlarına göre kesecek */
+	height: 220px; 
+	object-fit: cover;
   }  
-/*alt satırdaki cardın hover özelliği cardların üzerine 
-mouse gelince 1px siyah laşmasını sağlıyor.*/
 .card:hover{
 	border: 1px solid black;
 }
@@ -137,32 +118,26 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 #educatorh3{
 	color:black;
 }
-/*alttaki class fotoğrafı ovalleştirir*/
 .oval{
 	border-radius: 50%;
 }
 .educatorName{
 	color:white;
 	font-size: 25px;
-	/*alt satır bizim alttaki yazıdan isim kısmımızın 12 px boşluk bırakmamızı sağlıyor*/
 	margin-bottom:12px;
 }
-/*alt class bizim yazımız boyunu ve rengi değiştirdik*/
 .educatorp{
  color:black;
  font-size:18px ;
 }
 .social{
     color:black;
-    /*alt satır bizim ikonlarımızın 1px ve beyaz bir kutunun içine girmesini sağlıyor*/
     border: 2px solid black;
-    /*alt satır bizim kutularımızın içinde 10px'lik bir iç boşluk yaratır.*/
     padding: 10px;
-    width: 50px;/*bu satır bizim kuru genişliğini arttırır.*/
-    border-radius: 5px;/*bu satır kutularımıza ovellik katar*/
+    width: 50px;
+    border-radius: 5px;
     margin:5px 10px;
 }
-/*alttaki hover özelliği mouse ile ikonların üzerine gelindiğindeki özellikleri ile oynuyor.*/
 .social:hover{
 	background-color: #888;
 }
@@ -178,7 +153,6 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 }
 #opaqueRow{
     margin-top: 50px;
-	/*alt satır bizim iletişim kısmını opaklaştırıyor.*/
     background: rgba(255, 255, 255, 0.4);
 }
 #rowInformation{
@@ -186,16 +160,13 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 	padding-top: 50px;
 	background: rgba(255, 255, 255, 0.8);
 }
-/*alt satır Tüm haklar saklıdır yazısının üzerinde oynama yapar.*/
 #copyright{
     color: black;
     font-size: 20px;
     letter-spacing: 2px;
-    /*alt satır alttan yani ikonların üzerinden 15px uzaklaşır*/
     margin-bottom: 15px;
     background-position: center center ;
 }
-/*alttaki up kısmı bizim anasayfaya geri gitmemize yarayan ikonun özellikleri ile oynar.*/
 #up{
     color: black;
     border: 1px solid black;
@@ -204,21 +175,17 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
     padding: 8px 10px;
     margin-top: 20px;
 }
-/*alt satır bizim haritamıza biçim vermemize yardımcı oluyor.*/
 .map-area{
 	width: 100%;
 	height: 256px;
 	background: rgba(255, 255, 255, 0.0);
-	/*alt satır bizim bir kutu oluşturmamıza yarıyor ama harita bu kutuyu tam doldurmuyor.*/
 	box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
 }
-/*altdaki yapı bizim haritamzın oluşan kutunun içine sığmasını sağlamak*/
 .map-area iframe{
 	width: 100%;
 	height: 100%;
 	border: none;
 }
-/*altdaki yapı bizim haritamızın responsive bir yapı kazanmasını sağlamak.*/
 @media(max-width: 991px){
 	.contact-form{
 		margin-bottom: 30px;
@@ -231,7 +198,6 @@ mouse gelince 1px siyah laşmasını sağlıyor.*/
 		background-color:rgba(122, 122, 122, 0.96);
 	}
 }
-/*alttaki yapı ile menü kısmındaki dikey çizgilerin bizim hambürger butonumuzda görünmemesi için yazdığım kod.*/
 @media screen and (max-width: 991px){
 	.brace{
 		display:none;

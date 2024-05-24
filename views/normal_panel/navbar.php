@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg nav-bg"><!--yandaki nav-bg classı bizim navbarın rengini css kısmında değiştirmemiz için kullandığımız bir classtır. -->
+<nav class="navbar navbar-expand-lg nav-bg">
     <div class="container">
-        <img id="logoSize" src="views/img/benimLogo.png" alt="logo">
+        <img id="logoSize" src="img/benim_logo.png" alt="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -3,7 +3,7 @@
 <!--alt satırdaki bağlantıyı own Carouselden indirmiş olduğum owl dosyasındaki bağlantılar ile bağladım card yapıları kendi kendine kaya bilsin diye. javascript kısmı-->
 <script src="packets/owl/owl.carousel.min.js"></script>
 <!--alt satır bootstrap bağlantısını sağlıyor.-->
-<script src="/packets/bootstrap/bootstrap.js"></script>
+<script src="packets/bootstrap/bootstrap.js"></script>
 <!--alt satır bizim javascript kısmımız ile bağlantıyı sağlıyor. Bu bağlantıyı en alta yazdım çünkü kart yapısını oluşturmadan javascript dosyasını oluşturmak mantıklı değil.-->
 <script src="packets/owl/script.js"></script>
 <!-- scroll reveal alttaki bizim yazılarımızın sağdan soldan gelmesini sağlayan kütüphane-->

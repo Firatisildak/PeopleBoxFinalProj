@@ -19,7 +19,7 @@
 
         foreach ($menuItems as $item) {
           echo '<div class="col-md-3">';
-          echo '<img src="views/img/educator_Img/' . $item["img"] . '" class="img-fluid oval">';
+          echo '<img src="img/educator_img/' . $item["img"] . '" class="img-fluid oval">';
           echo '<h4 class="educatorName">' . $item["name"] . '</h4>';
           echo '<p class="educatorp">';
           echo '' . $item["text"] . '';

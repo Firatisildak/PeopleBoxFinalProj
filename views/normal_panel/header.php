@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="packets/bootstrap/bootstrap.css">
   <title>Anasayfa | Kod Dünyası</title>
   <link rel="stylesheet" href="css/style.css">
-  <!--alt satır font awesome ile bağlantıyı sağlıyor-->
+  <!--alt 3 satır font awesome ile bağlantıyı sağlıyor-->
   <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,5 +21,5 @@
 
 <body>
   <?php
-  include("libs/functions/database_Connection.php");
+  include("libs/functions/database_connection.php");
   ?>
