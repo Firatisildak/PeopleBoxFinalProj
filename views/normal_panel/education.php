@@ -22,7 +22,7 @@
                 <img src="img/education_img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid">
                 <h5 class="titleCard">' . $item["title"] . '</h5>
                 <p class="cardp">' . $item["write"] . '</p>
-                <a href="education_Detail.php?lesson_id=' . $item["lesson_id"] . '&educator_id=' . $item["educator_id"] . '"><h5>Devamını Oku</h5></a>
+                <a href="education_detail.php?lesson_id=' . $item["lesson_id"] . '&educator_id=' . $item["educator_id"] . '"><h5>Devamını Oku</h5></a>
                </div>';
             }
             ?>
