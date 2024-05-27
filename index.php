@@ -14,7 +14,7 @@
 </div>
 <?php
     include("views/normal_panel/about.php");
-    include("views/normal_panel/education.php");
+    include("views/normal_panel/lessoncard.php");
     include("views/normal_panel/educator.php");
     include("views/normal_panel/contact.php");
     include("libs/functions/script_library.php");
