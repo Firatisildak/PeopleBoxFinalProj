@@ -1,4 +1,15 @@
 <?php
+function goAndComeBack($url, $time = 0, $choos = 0)
+{
+  if ($choos != 1) {
+    $url = $_SERVER["HTTP_REFERER"]; //önceki geldiğim yerin url sini tutuyor
+  }
+  if ($time != 0) {
+    header("Refresh:$time;url=$url");
+  } else {
+    header("Location:$url");
+  }
+}
 function abouttext($maxLength)
 {
   include("libs/functions/database_connection.php");

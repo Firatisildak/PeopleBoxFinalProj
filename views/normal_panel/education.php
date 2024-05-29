@@ -1,6 +1,6 @@
 <?php
-include("inc/head.php");
-include("functions/routing.php");
+include("header.php");
+include("libs/functions/user_all_func.php");
 ?>
 <section id="education">
   <div class="container">
@@ -161,7 +161,7 @@ include("functions/routing.php");
       <div class="col-md-9">
         <div class="row mt-5">
           <div class="col-md-4 col-4">
-            <a href="education_Detail.php"><img src="img/education_Img/r1.jpg" alt="logo" class="img-fluid"></a>
+            <a href="education_Detail.php"><img src="img/education_img/r1.jpg" alt="logo" class="img-fluid"></a>
           </div>
           <div class="col-md-8 col-8 leanLeft">
             <h5>HTML5 ve CSS3 Eğitimleri</h5>
@@ -210,7 +210,7 @@ include("functions/routing.php");
             // alttaki her satırda "data-merge=1.5" özelliğini kullandım çünkü cardların own yapısındaki şekle oturması gerekiyor. kullandığım fotoğrafların yapısı own yapısına büyük geldi ve ben bu sorunu böyle çözdüm.
             foreach ($menuItems2 as $item) {
               echo '<div class="card" data-merge="1.5">';
-              echo '<a href="education_Detail.php"><img src="img/education_Img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid"></a>';
+              echo '<a href="education_Detail.php"><img src="img/education_img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid"></a>';
               echo '<h5 class="titleCard">' . $item["title"] . '</h5>';
               echo '<p class="cardp">' . $item["write"] . '</p>';
               echo '</div>';
@@ -220,7 +220,7 @@ include("functions/routing.php");
         </div>
         <div class="row mt-2">
           <div class="col-md-4 col-4">
-            <a href="education_Detail.php"><img src="img/education_Img/r3.jpg" alt="logo" class="img-fluid"></a>
+            <a href="education_Detail.php"><img src="img/education_img/r3.jpg" alt="logo" class="img-fluid"></a>
           </div>
           <div class="col-md-8 col-8 leanLeft">
             <h5>HTML5 ve CSS3 Eğitimleri</h5>
@@ -254,10 +254,10 @@ include("functions/routing.php");
     </div>
   </div>
   <?php
-    include("inc/footer.php");
+    include("footer.php");
   ?>
 </section>
-<!-- aşağıdaki javaacript kodu yızların işaretlenebilir hale gelmesini sağlıyor. -->
+<!-- aşağıdaki javaacript kodu yıldızların işaretlenebilir hale gelmesini sağlıyor. -->
 <script>
   const stars = document.querySelectorAll('.star-rating');
 
