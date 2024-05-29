@@ -1,0 +1,116 @@
+span{
+	font-size: 50px;
+	margin-right: 7px;
+	line-height: 42px;
+	color:#003666;
+	font-weight: 600;
+	float:left;
+}
+#logoSize{
+	font-size: 50px;
+	max-width: 100%;
+    height: 80px;
+}
+.brace{
+	font-size: 20px;
+}
+nav a:link{
+	text-decoration: none;
+	margin-right: 25px;
+	color:#003666;
+}
+nav a:hover{
+ 	/*alt satır menüdeki kısımların üzerine gidince altını çiziyor.*/
+ 	border-bottom: 2px solid black;
+ }
+ nav a:visited{
+	text-decoration: none;
+	margin-right: 25px;
+	color:black;
+}
+.imgSize{
+	width: 50%;
+}
+.oval{
+	border-radius: 30%;
+}
+#mainContent{
+	color:white;
+	font-size: 15px;
+	/*alttaki 3 satır kodu yazıyı ortalamk için kullandım.*/
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.educatorName{
+	color:white;
+	font-size: 25px;
+	/*alt satır bizim alttaki yazıdan isim kısmımızın 12 px boşluk bırakmamızı sağlıyor*/
+	margin-bottom:12px;
+	text-align: center;
+}
+.educatorp{
+	color:white;
+	font-size:18px ;
+	text-align: center;
+}
+#black_Row{
+	background-color: black;
+}
+.icon{
+	margin-right: 7px;
+	/*alt satır ikonlarımıza boyut veriyor*/
+	font-size: 16px;
+}
+@media screen and (max-width: 992px){
+	.brace{
+		display:none;
+	}
+}
+#writeCenter{
+	margin-left: 30px;
+    color: black;
+}
+.title_Center{
+	text-align: center;
+}
+#communication{
+	background-size: cover;
+	padding: 50px;
+	height: auto;
+}
+#copyright{
+    color: black;
+    font-size: 20px;
+    letter-spacing: 2px;
+    /*alt satır alttan yani ikonların üzerinden 15px uzaklaşır*/
+    margin-bottom: 15px;
+    background-position: center center ;
+}
+#rowInformation{
+	margin-top: 70px;
+	padding-top: 50px;
+	background: #F8F8F8;
+}
+.social{
+    color:blue;
+    /*alt satır bizim ikonlarımızın 1px ve beyaz bir kutunun içine girmesini sağlıyor*/
+    border: 2px solid blue;
+    /*alt satır bizim kutularımızın içinde 10px'lik bir iç boşluk yaratır.*/
+    padding: 10px;
+    width: 50px;/*bu satır bizim kuru genişliğini arttırır.*/
+    border-radius: 5px;/*bu satır kutularımıza ovellik katar*/
+    margin:5px 10px;
+	text-align: center;
+}
+#up{
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 8px 10px;
+    margin-top: 20px;
+}
+.global_Color{
+	background-color: #F8F8F8;
+}

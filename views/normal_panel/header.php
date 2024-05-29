@@ -25,7 +25,7 @@
     case 'index.php':
       $cssFile = 'style';
       break;
-    case 'education_Detail.php':
+    case 'education_detail.php':
       $cssFile = 'educationDetailStyle';
       break;
     case 'education.php':

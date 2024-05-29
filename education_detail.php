@@ -1,6 +1,7 @@
 <?php
 include("views/normal_panel/header.php");
-include("functions/routing.php");
+include("views/normal_panel/navbar.php");
+include("libs/functions/user_all_func.php");
 include("libs/functions/database_connection.php");
 
 ?>
@@ -9,14 +10,11 @@ include("libs/functions/database_connection.php");
     <div class="col-md-6 text-center mt-4" id="mainContent">
       <h2>Eğitim Hakkında</h2>
       <?php
-      // education_Detail.php
       $lesson_id = $_GET["lesson_id"]; // Parametre alınır, güvenliğe dikkat edin.
 
-      // Veritabanından dersin tam metnini alın
       $result = $db->query("SELECT cardLessonWrite FROM cardlesson WHERE cardLessonID = $lesson_id");
       $row = $result->fetch(PDO::FETCH_ASSOC);
 
-      // Dersin tam metnini görüntüleyin
       echo '<div class="lesson-content">';
       echo $row["cardLessonWrite"];
       echo '</div>';
@@ -31,7 +29,7 @@ include("libs/functions/database_connection.php");
       $result2 = $db->query("SELECT * FROM educator_table WHERE educatorId = $educator_id");
       $row2 = $result2->fetch(PDO::FETCH_ASSOC);
 
-      echo '<img src="img/educator_Img/' . $row2["imgLink"] . '" class="img-fluid oval">';
+      echo '<img src="img/educator_img/' . $row2["imgLink"] . '" class="img-fluid oval">';
       echo '<h4 class="educatorName">' . $row2["nameSurname"] . '</h4>';
       echo '<p class="educatorp">';
       echo '' . $row2["aboutWrite"] . '';
@@ -248,7 +246,7 @@ include("libs/functions/database_connection.php");
   </div>
 </div>
 <?php
-include("inc/footer.php");
+ include("views/normal_panel/footer.php");
 ?>
 </body>
 

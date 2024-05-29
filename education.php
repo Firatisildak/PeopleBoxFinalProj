@@ -1,6 +1,7 @@
 <?php
-include("header.php");
-include("libs/functions/user_all_func.php");
+ include("libs/functions/user_all_func.php");
+ include("views/normal_panel/header.php");
+ include("views/normal_panel/navbar.php");
 ?>
 <section id="education">
   <div class="container">
@@ -254,7 +255,7 @@ include("libs/functions/user_all_func.php");
     </div>
   </div>
   <?php
-    include("footer.php");
+    include("views/normal_panel/footer.php");
   ?>
 </section>
 <!-- aşağıdaki javaacript kodu yıldızların işaretlenebilir hale gelmesini sağlıyor. -->
@@ -273,14 +274,10 @@ include("libs/functions/user_all_func.php");
     });
   });
 </script>
-<!--alt satır own Carouselden bilgisyarımızda olmayan kısmı yani kütüphanesini netten çağırmak için kullandığımız link -->
-<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
-<!--alt satırdaki bağlantıyı own Carouselden indirmiş olduğum owl dosyasındaki bağlantılar ile bağladım card yapıları kendi kendine kaya bilsin diye. javascript kısmı-->
-<script src="owl/owl.carousel.min.js"></script>
-<!--alt satır bootstrap bağlantısını sağlıyor.-->
-<script src="bootstrap.js"></script>
-<!--alt satır bizim javascript kısmımız ile bağlantıyı sağlıyor. Bu bağlantıyı en alta yazdım çünkü kart yapısını oluşturmadan javascript dosyasını oluşturmak mantıklı değil.-->
-<script src="owl/script.js"></script>
+<?php
+    include("libs/functions/script_library.php");
+    include("libs/functions/javascript_code.php");
+?>
 </body>
 
 </html>
