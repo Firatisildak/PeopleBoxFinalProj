@@ -26,10 +26,10 @@
       $cssFile = 'style';
       break;
     case 'education_detail.php':
-      $cssFile = 'educationDetailStyle';
+      $cssFile = 'education_detail_style';
       break;
     case 'education.php':
-      $cssFile = 'educationStyle';
+      $cssFile = 'education_style';
       break;
     default:
       echo "Tanımlanamayan bir sayfadasınız yönlendiriliyorsunuz.";
