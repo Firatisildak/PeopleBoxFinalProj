@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<?php
-	include("MyClass.php");
-	include("functions/routing.php");
-	include("inc/database_Connection.php"); //bu kod bizim veritabaı ile bağlantımızı sağlar.
+	include("libs/myclass.php");
+	include("libs/functions/user_all_func.php");
+	include("libs/functions/database_connection.php");
 	$userProcess = new sqlProcess();
 	if (isset($_POST['kayit'])) {
 		//alttaki kod parçası bizim kullanıcımızın kayıt işlemi için kullanılır.

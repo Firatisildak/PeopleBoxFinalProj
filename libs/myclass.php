@@ -4,9 +4,7 @@ class sqlProcess
     function __construct()
     {
         try {
-            //PDO sınıfının constructor'ında, veritabanı sunucusunun adresi (localhost), veritabanı adı (db), karakter seti (utf8), kullanıcı adı (root) ve şifre ('') gibi bilgiler yer alır. Bu bilgiler, veritabanı sunucusuna bağlanmak için gereklidir.
-            $db = new PDO("mysql:host=localhost; dbname=db; charset=utf8", 'root', '');
-            //echo "veri tabanı bağlantısı başarılı";
+            $db=new PDO("mysql:host=localhost; dbname=peopleboxprdb; charset=utf8",'root','');
         } catch (Exception $e) {
             echo $e->getMessage();
         }
