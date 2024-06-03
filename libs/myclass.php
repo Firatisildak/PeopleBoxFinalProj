@@ -34,14 +34,15 @@ class sqlProcess
         if (isset($_POST[$post])) {
             $username = $_POST[$name];
             $password = $_POST[$pass];
-            $mail = $_POST[$mail];
+            $email = $_POST[$mail];
             global $db;
             // Assuming $db is your database connection object
             $kullanici_sor = $db->prepare($query);
-            $kullanici_sor->execute([$username, $password, $mail]);
-            $say = $kullanici_sor->rowCount();
+            $kullanici_sor->execute([$username, $email]);
+            $say = $kullanici_sor->fetch(PDO::FETCH_ASSOC);
+            $password_correct = password_verify($password, $say['password']);
 
-            if ($say == 1) {
+            if ($say && $password_correct) {
                 $_SESSION["LoggedIn"] = true;
                 $_SESSION["username"] = $username;
 
@@ -49,7 +50,7 @@ class sqlProcess
 
                 } else {
                     echo '<script>alert("Giriş başarılı.");</script>';
-                    goAndComeBack("index.php", 2, 1);
+                    goAndComeBack("index.php", 0.1, 1);
                 }
             } else {
                 $_SESSION["LoggedIn"] = false;
@@ -63,6 +64,28 @@ class sqlProcess
     {
         if (isset($_POST[$requestQuery])) {
             global $db, $params, $kayitSayisi;
+            $name = $params[0];
+            $mail = $params[1];
+            $pass = $params[2];
+            
+            if (strlen($name) < 4) {
+                echo '<script>alert("Kullanıcı Adı en az 4 karakter olmalı.");</script>';
+                return; 
+            }
+            if (strlen($pass) < 6) {
+                echo '<script>alert("Şifre en az 6 karakter olmalı.");</script>';
+                return; 
+            }
+            
+            if (strpos($mail, '@') === false) {
+                echo '<script>alert("Geçerli bir mail adresi giriniz.");</script>';
+                return;
+            }
+            // Şifreyi hashle
+            $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
+
+            // $params array'inde şifreyi güncelle
+            $params[2] = $hashed_pass;
             if ($choos != 0) {
                 //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
                 $sorgu = $db->prepare($query2);

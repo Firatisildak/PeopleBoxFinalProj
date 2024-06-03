@@ -192,33 +192,6 @@
           </div>
           <hr class="mt-5">
         </div>
-        <div class="row mt-3">
-          <h3 class="mb-5">En Çok Satan Kurslar</h3>
-          <!--alttaki her satırda "data-merge=1.5" özelliğini kullandım çünkü cardların own yapısındaki şekle oturması gerekiyor. kullandığım fotoğrafların yapısı own yapısına büyük geldi ve ben bu sorunu böyle çözdüm -->
-          <div class="owl-carousel own-theme text-center">
-            <?php
-            $menuItems2 = array();
-            //Alt'daki kod parçası bizim kayıtlı derslerimizi getiriyor ve bu kodları bir foreach yapısı ile derslerimizi kayıt ilgili koda getiriyor.
-            $result2 = $db->query("SELECT cardLessonImg, cardLessonTitle, cardLessonWrite FROM cardlesson");
-            if ($result2->rowCount() > 0) {
-              while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { //fetch(PDO::FETCH_ASSOC) yöntemi, sonuç kümesinden bir satırı alır ve bu satırı bir dizi olarak döndürür.
-                $menuItem2 = array("lessonimg" => $row["cardLessonImg"], "title" => $row["cardLessonTitle"], "write" => $row["cardLessonWrite"]); //Döngü gövdesi kısmını özelleştirebilirsiniz. Bu bölümde, $row dizisinin herhangi bir özelliğini kullanabilirsiniz. Örneğin, $row['column_name'] şeklinde bir sütun adını kullanarak belirli bir sütundaki verilere erişebilirsiniz.
-                $menuItems2[] = $menuItem2; // Diziye her adımda bir öğe eklenir
-              }
-            } else {
-              echo "Veritabanında hiç veri bulunamadı.";
-            }
-            // alttaki her satırda "data-merge=1.5" özelliğini kullandım çünkü cardların own yapısındaki şekle oturması gerekiyor. kullandığım fotoğrafların yapısı own yapısına büyük geldi ve ben bu sorunu böyle çözdüm.
-            foreach ($menuItems2 as $item) {
-              echo '<div class="card" data-merge="1.5">';
-              echo '<a href="education_Detail.php"><img src="img/education_img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid"></a>';
-              echo '<h5 class="titleCard">' . $item["title"] . '</h5>';
-              echo '<p class="cardp">' . $item["write"] . '</p>';
-              echo '</div>';
-            }
-            ?>
-          </div>
-        </div>
         <div class="row mt-2">
           <div class="col-md-4 col-4">
             <a href="education_Detail.php"><img src="img/education_img/r3.jpg" alt="logo" class="img-fluid"></a>

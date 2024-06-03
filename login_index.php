@@ -20,13 +20,18 @@
 		$params2 = [$username,$mail];
 		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name=? or mail = ?', $params2);
 	}
-	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? || mail=?) && password=?', 'name', 'name','pass', 'user');//giris=kayıt butonun ismi.
+	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? || mail=?)', 'name', 'name','pass', 'user');//giris=kayıt butonun ismi.
 	?>
 	<link rel="stylesheet" href="./css/login_style.css">
 	<script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
 </head>
-
+<style>
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
 <body>
 	<div class="main">
 		<div class="form-box">
@@ -47,30 +52,19 @@
 				<button type="submit" name="giris" class="submit-btn">Giriş</button><!--burada verdiğimiz çok önemli bu ismi veri tabanı bağlantısında giris butonunun tıklanma özelliğine yazıyoruz.-->
 			</form>
 			<form id="Register" class="input-group" action="login_index.php" method="post"><!--Yani, bu kodda "sql_islem.php" değeri, form verilerinin sunucuda işlenmesi için yönlendirilecek olan betik dosyasını belirtir. Bu dosya, kullanıcının girdiği form verilerini alacak, işleyecek ve veritabanı işlemleri gibi gerekli işlemleri gerçekleştirecektir.-->
-				<input type="text" name="username" class="input-field" placeholder="Kullanıcı Adı" required>
-				<input type="password" name="password" class="input-field" placeholder="Şifre Gir" required>
-				<input type="text" name="mail" class="input-field" placeholder="Mail Gir" required>
+				<input type="text" name="username" id="username" class="input-field" placeholder="Kullanıcı Adı" required>
+				<span id="name-error" class="error-message">Kullanıcı Adı en az 4 karakter olmalı.</span>
+				<input type="password" name="password" id="password" class="input-field" placeholder="Şifre Gir" required>
+				<span id="pass-error" class="error-message">Şifre Adı en az 6 karakter olmalı.</span>
+				<input type="text" name="mail" id="mail" class="input-field" placeholder="Mail Gir" required>
+				<span id="mail-error" class="error-message">Geçerli bir mail adresi giriniz.</span>
 				<button type="submit" name="kayit" class="submit-btn">Kayıt Ol</button>
 			</form>
 		</div>
 	</div>
-	<script>
-		var x = document.getElementById("Login");
-		var y = document.getElementById("Register");
-		var z = document.getElementById("btn");
-
-		function register() {
-			x.style.left = "-400px";
-			y.style.left = "50px";
-			z.style.left = "110px";
-		}
-
-		function login() {
-			x.style.left = "50px";
-			y.style.left = "450px";
-			z.style.left = "0px";
-		}
-	</script>
+	<?php
+	include("libs/functions/javascript_code.php");
+	?>
 </body>
 
 </html>
