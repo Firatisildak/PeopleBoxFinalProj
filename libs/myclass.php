@@ -29,23 +29,26 @@ class sqlProcess
             </div>
         </div>';
     }
-    function loginControl($post, $query, $name, $pass, $who)
+    function loginControl($post, $query, $name, $pass, $mail, $who)
     {
         if (isset($_POST[$post])) {
             $username = $_POST[$name];
             $password = $_POST[$pass];
-
+            $mail = $_POST[$mail];
             global $db;
             // Assuming $db is your database connection object
             $kullanici_sor = $db->prepare($query);
-            $kullanici_sor->execute([$username, $password]);
+            $kullanici_sor->execute([$username, $password, $mail]);
             $say = $kullanici_sor->rowCount();
 
             if ($say == 1) {
                 $_SESSION["LoggedIn"] = true;
                 $_SESSION["username"] = $username;
+
                 if ($who == 'admin') {
+
                 } else {
+                    echo '<script>alert("Giriş başarılı.");</script>';
                     goAndComeBack("index.php", 2, 1);
                 }
             } else {
@@ -68,16 +71,19 @@ class sqlProcess
                 if ($kayitSayisi == 0) {
                     $sorgu = $db->prepare($query);
                     $guncelle = $sorgu->execute(($params));
+                    echo '<script>alert("işlem Başarılı.");</script>';
+                }else{
+                    echo '<script>alert("Bu kişi zaten kayıtlı.");</script>';
                 }
-            } else {
+            } else if($choos == 0){
                 $sorgu = $db->prepare($query);
                 $guncelle = $sorgu->execute(($params));
-            }
-            if ($guncelle) {
                 echo '<script>alert("işlem Başarılı.");</script>';
-            } else {
+            }
+            else{
                 echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
             }
+            
         }
     }
 }

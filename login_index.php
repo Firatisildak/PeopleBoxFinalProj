@@ -17,10 +17,10 @@
 		$mail = $_POST["mail"];
 		$password = $_POST['password'];
 		$params = [$username, $mail, $password];
-		$params2 = [$username];
-		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name = ?', $params2);
+		$params2 = [$username,$mail];
+		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name=? or mail = ?', $params2);
 	}
-	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE name=? && password=?', 'name', 'pass', 'user');//giris=kayıt butonun ismi.
+	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? || mail=?) && password=?', 'name', 'name','pass', 'user');//giris=kayıt butonun ismi.
 	?>
 	<link rel="stylesheet" href="./css/login_style.css">
 	<script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
 				<a href="#"><i class="fa-brands fa-github social  mb-4"></i></a>
 			</div>
 			<form id="Login" class="input-group" action="login_index.php" method="post"><!--method="post" eğer bu kısmı böyle vermezsem veritabanı bağlantısında post özelliğine kod yazamam.-->
-				<input type="text" name="name" class="input-field" placeholder="Kullanıcı Adı" required><!--required kodu boş geçilemez anlamına geliyor.-->
+				<input type="text" name="name" class="input-field" placeholder="Kullanıcı adı veya Mail adresi" required><!--required kodu boş geçilemez anlamına geliyor.-->
 				<input type="password" name="pass" class="input-field" placeholder="Şifre Gir" required>
 				<a href="#">Şifremi Unuttum</a>
 				<button type="submit" name="giris" class="submit-btn">Giriş</button><!--burada verdiğimiz çok önemli bu ismi veri tabanı bağlantısında giris butonunun tıklanma özelliğine yazıyoruz.-->
