@@ -43,6 +43,7 @@ class sqlProcess
             $password_correct = password_verify($password, $say['password']);
 
             if ($say && $password_correct) {
+                $_SESSION["LoggedIn1"] = true;
                 $_SESSION["LoggedIn"] = true;
                 $_SESSION["username"] = $username;
 

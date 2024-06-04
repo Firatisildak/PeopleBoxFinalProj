@@ -45,6 +45,11 @@ input[type=text]:focus, input[type=email]:focus{
 	margin-right: 25px;
 	color:black;
  }
+ .offset-md-10 i.fa-solid.fa-user,
+.offset-md-10 h3 {
+  color: white; /* Renkleri beyaz yap */
+}
+
  .icon{
 	margin-right: 7px;
 	font-size: 16px;
@@ -122,7 +127,7 @@ span{
 	border-radius: 50%;
 }
 .inputOval{
-	border-radius: 45%;
+	border-radius: 20px;
 }
 .educatorName{
 	color:white;

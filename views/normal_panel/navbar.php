@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg nav-bg">
     <div class="container">
         <img id="logoSize" src="img/benim_logo.png" alt="logo">
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,7 +21,7 @@
                 } else {
                     echo "Veritabanında hiç veri bulunamadı.";
                 }
-                if ($_SESSION["LoggedIn"] == true) {
+                if ($_SESSION["LoggedIn1"] == true) {
                     //alt'taki kod bloğu bizim array yapısında kullandığımız foreach yapısı bizim her bir $menuItems her seferinde $item değişkenine atayıp veritabaındaki veri kadar işlem yapıyor.
                     foreach ($menuItems as $item) {
                         if($item['text']!='Giriş&Kayıt'){

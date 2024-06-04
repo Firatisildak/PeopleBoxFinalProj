@@ -15,7 +15,7 @@
 	
 	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? OR mail=?)', 'name', 'name','pass', 'user');
 
-	if ($_SESSION["LoggedIn"] == true) {
+	if ($_SESSION["LoggedIn1"] == true) {
 		goAndComeBack("index.php", 0, 1);
 	}else{
 		if (isset($_POST['kayit'])) {
