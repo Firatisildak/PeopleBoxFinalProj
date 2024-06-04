@@ -121,6 +121,9 @@ span{
 .oval{
 	border-radius: 50%;
 }
+.inputOval{
+	border-radius: 45%;
+}
 .educatorName{
 	color:white;
 	font-size: 25px;

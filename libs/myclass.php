@@ -29,7 +29,7 @@ class sqlProcess
             </div>
         </div>';
     }
-    function loginControl($post, $query, $name, $pass, $mail, $who)
+    function loginControl($post, $query, $name, $mail, $pass, $who)
     {
         if (isset($_POST[$post])) {
             $username = $_POST[$name];
@@ -83,9 +83,9 @@ class sqlProcess
             }
             // Şifreyi hashle
             $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
-
             // $params array'inde şifreyi güncelle
             $params[2] = $hashed_pass;
+
             if ($choos != 0) {
                 //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
                 $sorgu = $db->prepare($query2);

@@ -45,9 +45,13 @@ function abouttext($maxLength)
   }
 }
 //buton ile çıkışı sağlıyor.
-if (isset($_POST['cikis'])) {
+if (isset($_POST['cikis']) || isset($_POST['cikis1'])) {
   session_unset(); //işlevi, mevcut oturumun tüm değişkenlerini temizler. Oturumda tanımlanan tüm değişkenlerin değerleri silinir, ancak oturum kendisi hala etkin kalır.
   session_destroy(); //Oturum dosyası veya veritabanı girdileri silinir ve oturum ile ilişkili çerez 
-  goAndComeBack("admin_Login.php", 0, 1);
+  if(isset($_POST['cikis1'])){
+    goAndComeBack("index.php", 0, 1);
+  }else{
+    goAndComeBack("admin_Login.php", 0, 1);
+  }
   unset($db); // Veritabanı bağlantısını kapatma
 }

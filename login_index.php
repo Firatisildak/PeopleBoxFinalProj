@@ -7,20 +7,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<?php
+	session_start();
 	include("libs/myclass.php");
 	include("libs/functions/user_all_func.php");
 	include("libs/functions/database_connection.php");
 	$userProcess = new sqlProcess();
-	if (isset($_POST['kayit'])) {
-		//alttaki kod parçası bizim kullanıcımızın kayıt işlemi için kullanılır.
-		$username = $_POST['username'];
-		$mail = $_POST["mail"];
-		$password = $_POST['password'];
-		$params = [$username, $mail, $password];
-		$params2 = [$username,$mail];
-		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name=? or mail = ?', $params2);
+	
+	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? OR mail=?)', 'name', 'name','pass', 'user');
+
+	if ($_SESSION["LoggedIn"] == true) {
+		goAndComeBack("index.php", 0, 1);
+	}else{
+		if (isset($_POST['kayit'])) {
+			//alttaki kod parçası bizim kullanıcımızın kayıt işlemi için kullanılır.
+			$username = $_POST['username'];
+			$mail = $_POST["mail"];
+			$password = $_POST['password'];
+			$params = [$username, $mail, $password];
+			$params2 = [$username,$mail];
+			$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name=? or mail = ?', $params2);
+		}
 	}
-	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE (name=? || mail=?)', 'name', 'name','pass', 'user');//giris=kayıt butonun ismi.
+	
 	?>
 	<link rel="stylesheet" href="./css/login_style.css">
 	<script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
