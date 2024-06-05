@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="packets/bootstrap/bootstrap.css">
     <title>Document</title>
     <?php
     session_start();
-    include("inc/adminHead.php");
-    include("inc/database_Connection.php");
-    include("functions/routing.php");
-    include("MyClass.php");
+    include("views/admin_panel/admin_head.php");
+    include("libs/functions/database_connection.php");
+    include("libs/functions/user_all_func.php");
+    include("libs/myclass.php");
+
     if ($_SESSION["LoggedIn"] == true) {
         //Alt satırdaki kod parçası bizim seçtiğimiz geçici dosyayı bizim belirlediğimiz $hedef_dizin = "img/"; konumuna kalıcı olar kayıt etmeyi sağlayan bir kod parçasıdır.
         if (isset($_FILES["dosya"])) {
@@ -39,7 +40,7 @@
 
             $params = [$education_img, $education_title, $education_write, $educator_Id];
             $params2 = [$education_img];
-            $educationSql->sqlsorgu('educationSave', 'INSERT INTO cardlesson (cardLessonImg, cardLessonTitle, cardLessonWrite, educatorId) VALUES (?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM cardlesson WHERE cardLessonImg = ?', $params2);
+            $educationSql->sqlsorgu2('educationSave', 'INSERT INTO cardlesson (cardLessonImg, cardLessonTitle, cardLessonWrite, educatorId) VALUES (?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM cardlesson WHERE cardLessonImg = ?', $params2);
         } else if (isset($_POST['educationDelete']) || isset($_POST['educationUpdate'])) {
             $education_Id = $_POST["education_id_seconds"];
             $education_img = $_POST["education_img_seconds"]; //educator_name bu bizim iput ismimizdir.
@@ -47,8 +48,8 @@
             $education_write = $_POST["education_write_seconds"];
             $educator_Id=$_POST["educator_id_seconds"];
             $params = [$education_img, $education_title, $education_write,  $educator_Id, $education_Id];
-            $educationSql->sqlsorgu('educationUpdate', 'UPDATE cardlesson SET cardLessonImg=?, cardLessonTitle=?, cardLessonWrite=?, educatorId=? WHERE  cardLessonID=?', $params, 0, 0, 0);
-            $educationSql->sqlsorgu('educationDelete', 'Delete from cardlesson WHERE cardLessonImg=? And cardLessonTitle=? And cardLessonWrite=? AND educatorId=? AND cardLessonID=?', $params, 0, 0, 0);
+            $educationSql->sqlsorgu2('educationUpdate', 'UPDATE cardlesson SET cardLessonImg=?, cardLessonTitle=?, cardLessonWrite=?, educatorId=? WHERE  cardLessonID=?', $params, 0, 0, 0);
+            $educationSql->sqlsorgu2('educationDelete', 'Delete from cardlesson WHERE cardLessonImg=? And cardLessonTitle=? And cardLessonWrite=? AND educatorId=? AND cardLessonID=?', $params, 0, 0, 0);
         }
     } else {
         goAndComeBack("admin_Login.php", 0, 1);
@@ -56,7 +57,7 @@
     //aşağıdakiyapı ile 1 saatlik oturum açılıyor.
     logoutAdmin();
     ?>
-    <link rel="stylesheet" href="./css/educationStyle.css">
+    <link rel="stylesheet" href="css/education_style.css">
     <!--alt satır font awesome ile bağlantıyı sağlıyor-->
     <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +76,7 @@
     <h2 class="text-center text-primary">Eğitim İşlemleri</h2>
     <h3 class="offset-md-10"><i class="fa-solid fa-user fa-lg me-3"></i><?php echo $_SESSION["username"] ?></h3>
     <div class="container rowColor border inputOval mt-5 pb-3">
-        <form class="input-group" action="admin_educationProcess.php" method="post" enctype="multipart/form-data">
+        <form class="input-group" action="admin_education_process.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12 mt-3">
                     <div class="modal fade" id="saveEducationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -174,7 +175,7 @@
                         </tr>
                     </thead>
                     <?php
-                    include("inc/database_Connection.php");
+                    include("libs/functions/database_connection.php");
                     $menuItems = array();
                     //Alt'daki kod parçası bizim menüdeki kayıtlı verilerimizi getiriyor ve bu kodları bir foreach yapısı ile menülerin kayıt olduğu nav bar kısmındaki ilgili koda getiriyor.
                     $result = $db->query("SELECT * FROM cardlesson");
@@ -224,7 +225,7 @@
             });
         });
     </script>
-    <script src="bootstrap.js"></script>
+    <script src="packets/bootstrap/bootstrap.js"></script>
 </body>
 
 </html>

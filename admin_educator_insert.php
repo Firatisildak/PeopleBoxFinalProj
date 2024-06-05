@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--alt satır bizim bootstrap ile olan bağlantımızın css kısmını bağlıyor.-->
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="packets/bootstrap/bootstrap.css">
     <title>Document</title>
     <?php
     session_start();
-    include("inc/adminHead.php");
-    include("inc/database_Connection.php");
-    include("functions/routing.php");
-    include("MyClass.php");
+    include("views/admin_panel/admin_head.php");
+    include("libs/functions/database_connection.php");
+    include("libs/functions/user_all_func.php");
+    include("libs/myclass.php");
     if ($_SESSION["LoggedIn"] == true) {
         //Alt satırdaki kod parçası bizim seçtiğimiz geçici dosyayı bizim belirlediğimiz $hedef_dizin = "img/"; konumuna kalıcı olar kayıt etmeyi sağlayan bir kod parçasıdır.
         if (isset($_FILES["dosya"])) {
@@ -42,7 +42,7 @@
 
             $params = [$educator_nameSurname, $educator_imgLink, $educator_aboutWrite, $educator_faceLink, $educator_linkedinLink, $educator_githubLink];
             $params2 = [$educator_nameSurname];
-            $educatorSql->sqlsorgu('educatorSave', 'INSERT INTO educator_table (nameSurname, imgLink, aboutWrite, faceLink, linkedinLink, githubLink) VALUES (?, ?, ?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM educator_table WHERE nameSurname = ?', $params2);
+            $educatorSql->sqlsorgu2('educatorSave', 'INSERT INTO educator_table (nameSurname, imgLink, aboutWrite, faceLink, linkedinLink, githubLink) VALUES (?, ?, ?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM educator_table WHERE nameSurname = ?', $params2);
         } else if (isset($_POST['educatorDelete']) || isset($_POST['educatorUpdate'])) {
             $educator_Id = $_POST["educator_id_seconds"];
             $educator_nameSurname = $_POST["educator_name_seconds"]; //educator_name bu bizim buton ismimizdir.
@@ -52,16 +52,16 @@
             $educator_linkedinLink = $_POST["educator_linkedin_seconds"];
             $educator_githubLink = $_POST["educator_github_seconds"];
             $params = [$educator_nameSurname, $educator_imgLink, $educator_aboutWrite, $educator_faceLink, $educator_linkedinLink, $educator_githubLink, $educator_Id];
-            $educatorSql->sqlsorgu('educatorUpdate', 'UPDATE educator_table SET nameSurname=?, imgLink=?, aboutWrite=?, faceLink=?, linkedinLink=?, githubLink=? WHERE  educatorId=?', $params, 0, 0, 0);
-            $educatorSql->sqlsorgu('educatorDelete', 'Delete from educator_table WHERE nameSurname=? And imgLink=? And aboutWrite=? And faceLink=? And linkedinLink=? And githubLink=? AND educatorId=?', $params, 0, 0, 0);
+            $educatorSql->sqlsorgu2('educatorUpdate', 'UPDATE educator_table SET nameSurname=?, imgLink=?, aboutWrite=?, faceLink=?, linkedinLink=?, githubLink=? WHERE  educatorId=?', $params, 0, 0, 0);
+            $educatorSql->sqlsorgu2('educatorDelete', 'Delete from educator_table WHERE nameSurname=? And imgLink=? And aboutWrite=? And faceLink=? And linkedinLink=? And githubLink=? AND educatorId=?', $params, 0, 0, 0);
         }
     } else {
-        goAndComeBack("admin_Login.php", 0, 1);
+        goAndComeBack("admin_login.php", 0, 1);
     }
     //aşağıdakiyapı ile 1 saatlik oturum açılıyor.
     logoutAdmin();
     ?>
-    <link rel="stylesheet" href="./css/educationStyle.css">
+    <link rel="stylesheet" href="css/education_style.css">
     <!--alt satır font awesome ile bağlantıyı sağlıyor-->
     <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +80,7 @@
     <h2 class="text-center text-primary">Eğitimci İşlemleri</h2>
     <h3 class="offset-md-10"><i class="fa-solid fa-user fa-lg me-3"></i><?php echo $_SESSION["username"] ?></h3>
     <div class="container rowColor border inputOval mt-5 pb-3">
-        <form class="input-group" action="admin_EducatorInsert.php" method="post" enctype="multipart/form-data">
+        <form class="input-group" action="admin_educator_insert.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12 mt-3">
                     <div class="modal fade" id="saveEducatorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -182,7 +182,7 @@
                         </tr>
                     </thead>
                     <?php
-                    include("inc/database_Connection.php");
+                    include("libs/functions/database_connection.php");
                     $menuItems = array();
                     //Alt'daki kod parçası bizim menüdeki kayıtlı verilerimizi getiriyor ve bu kodları bir foreach yapısı ile menülerin kayıt olduğu nav bar kısmındaki ilgili koda getiriyor.
                     $result = $db->query("SELECT * FROM educator_table");
@@ -238,7 +238,7 @@
             });
         });
     </script>
-    <script src="bootstrap.js"></script>
+    <script src="packets/bootstrap/bootstrap.js"></script>
 </body>
 
 </html>

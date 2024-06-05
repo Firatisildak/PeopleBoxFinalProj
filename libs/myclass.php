@@ -36,20 +36,23 @@ class sqlProcess
             $password = $_POST[$pass];
             $email = $_POST[$mail];
             global $db;
-            // Assuming $db is your database connection object
             $kullanici_sor = $db->prepare($query);
-            $kullanici_sor->execute([$username, $email]);
+            if($who == 'admin'){
+                $kullanici_sor->execute([$username]);
+            }else{
+                $kullanici_sor->execute([$username, $email]);
+            }
             $say = $kullanici_sor->fetch(PDO::FETCH_ASSOC);
             $password_correct = password_verify($password, $say['password']);
 
             if ($say && $password_correct) {
-                $_SESSION["LoggedIn1"] = true;
-                $_SESSION["LoggedIn"] = true;
+                
                 $_SESSION["username"] = $username;
 
                 if ($who == 'admin') {
-
+                    $_SESSION["LoggedIn"] = true;
                 } else {
+                    $_SESSION["LoggedIn1"] = true;
                     echo '<script>alert("Giriş başarılı.");</script>';
                     goAndComeBack("index.php", 0.1, 1);
                 }
@@ -108,6 +111,30 @@ class sqlProcess
                 echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
             }
             
+        }
+    }
+    function sqlsorgu2($requestQuery, $query, $params, $choos = 0, $query2, $params2)
+    {
+        if (isset($_POST[$requestQuery])) {
+            global $db, $params, $kayitSayisi;
+            if ($choos != 0) {
+                //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
+                $sorgu = $db->prepare($query2);
+                $guncelle = $sorgu->execute(($params2));
+                $kayitSayisi = $sorgu->fetchColumn();
+                if ($kayitSayisi == 0) {
+                    $sorgu = $db->prepare($query);
+                    $guncelle = $sorgu->execute(($params));
+                }
+            } else {
+                $sorgu = $db->prepare($query);
+                $guncelle = $sorgu->execute(($params));
+            }
+            if ($guncelle) {
+                echo '<script>alert("işlem Başarılı.");</script>';
+            } else {
+                echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
+            }
         }
     }
 }

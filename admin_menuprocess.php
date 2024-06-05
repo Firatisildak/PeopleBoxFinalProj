@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"> <!--user-scalable=0 bu kod ile sitenin mobilde yakınlaşırma ve uzaklaştırmayı önlüyor.-->
     <!--alt satır bizim bootstrap ile olan bağlantımızın css kısmını bağlıyor.-->
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="packets/bootstrap/bootstrap.css">
     <title>Yönetici Anasayfa</title>
     <!--Alt'daki php kod parçası bizim her sayfa için ayrı olan css dosyalarının bağlantı koşullarını burada oluşturuyor.-->
     <?php
     session_start();
-    include("inc/database_Connection.php");
-    include("functions/routing.php");
-    include("MyClass.php");
+    include("libs/functions/database_connection.php");
+    include("libs/functions/user_all_func.php");
+    include("libs/myclass.php");
     //Alt satırdaki kod parçası bizim adminimizin girişini kontrol etmmemizi sağlıyor.
     $admin = new sqlProcess();
     $admin->__construct();
-    $admin->loginControl('girisAdmin', 'SELECT * FROM adminlogin WHERE name=? AND password=?', 'name', 'pass', 'admin');//girisAdmin=login sayfasındaki buton ismi.
+    $admin->loginControl('girisAdmin', 'SELECT * FROM adminlogin WHERE name=? ', 'name', 'name' ,'pass', 'admin');//girisAdmin=login sayfasındaki buton ismi.
 
     if ($_SESSION["LoggedIn"] == true) {
         $menuSql = new sqlProcess();
@@ -30,7 +30,7 @@
 
             $params = [$menu_name, $menu_url, $menu_icon, $menu_siralama];
             $params2 = [$menu_name, $menu_url];
-            $menuSql->sqlsorgu('menuSave', 'INSERT INTO menutable (menuName, menuUrl, menuIcon, siralama) VALUES (?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM menutable WHERE menuName = ? OR menuUrl=?', $params2);
+            $menuSql->sqlsorgu2('menuSave', 'INSERT INTO menutable (menuName, menuUrl, menuIcon, siralama) VALUES (?, ?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM menutable WHERE menuName = ? OR menuUrl=?', $params2);
         } else if (isset($_POST['menuUpdate']) || isset($_POST['menuDelete'])) {
             $menu_id = $_POST["menu_id_seconds"];
             $menu_name = $_POST["menu_name_seconds"];
@@ -38,15 +38,15 @@
             $menu_icon = $_POST["menu_icon_seconds"];
             $menu_siralama = $_POST["menu_siralama_seconds"];
             $params = [$menu_name, $menu_url, $menu_icon, $menu_siralama,  $menu_id];
-            $menuSql->sqlsorgu('menuUpdate', 'UPDATE menutable SET menuName = ?, menuUrl = ?, menuIcon = ?, siralama = ? WHERE id = ?', $params, 0, 0, 0); // bu satır menü güncelleme işlemi yapıyor.
-            $menuSql->sqlsorgu('menuDelete', 'DELETE FROM menutable WHERE menuName=? AND menuUrl=? AND menuIcon=? And siralama=? And id=?', $params, 0, 0, 0); // bu satır menü silme işlemi yapıyor.*/  
+            $menuSql->sqlsorgu2('menuUpdate', 'UPDATE menutable SET menuName = ?, menuUrl = ?, menuIcon = ?, siralama = ? WHERE id = ?', $params, 0, 0, 0); // bu satır menü güncelleme işlemi yapıyor.
+            $menuSql->sqlsorgu2('menuDelete', 'DELETE FROM menutable WHERE menuName=? AND menuUrl=? AND menuIcon=? And siralama=? And id=?', $params, 0, 0, 0); // bu satır menü silme işlemi yapıyor.*/  
         }
     } else {
-        goAndComeBack("admin_Login.php", 0, 1);
+        goAndComeBack("admin_login.php", 0, 1);
     }
     //aşağıdakiyapı ile 1 saatlik oturum açılıyor.
     logoutAdmin();
-    include("inc/adminHead.php");
+    include("views/admin_panel/admin_head.php");
     ?>
     <!--alt satır font awesome ile bağlantıyı sağlıyor-->
     <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
@@ -63,10 +63,10 @@
 
 <body>
     <h2 class="text-center text-primary">Menü İşlemleri</h2>
-    <link rel="stylesheet" href="./css/educationStyle.css">
+    <link rel="stylesheet" href="css/education_style.css">
     <h3 class="offset-md-10"><i class="fa-solid fa-user fa-lg me-3"></i><?php echo $_SESSION["username"] ?></h3>
     <div class="container rowColor border inputOval mt-5 pb-3">
-        <form id="Login" class="input-group" action="admin_MenuProcess.php" method="post">
+        <form id="Login" class="input-group" action="admin_menuprocess.php" method="post">
             <div class="row">
                 <div class="col-md-12 mt-3">
                     <!--Alttaki kod parçası güncelleme işlemi için yazılmış bir modal yapısıdır.-->
@@ -170,7 +170,7 @@
             </div>
         </div>
     </div>
-    <script src="bootstrap.js"></script>
+    <script src="packets/bootstrap/bootstrap.js"></script>
     <script>
         //Alt' daki kod parçası bizim tablodaki tıkladığımız veriyi inputların içine getiriyor.
         // Tablodaki satırları seçmek için tüm tablo satırlarını alırız

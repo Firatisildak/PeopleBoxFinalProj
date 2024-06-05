@@ -11,12 +11,10 @@
       <div class="accordion" id="accordionExample">
         <?php
         $menu_array1 = array(
-          array("admin_MenuProcess", "Menü İşlemleri"),
-          array("admin_EducatorInsert", "Eğitmen İşlemleri"),
-          array("admin_educationProcess", "Ders İşlemleri"),
-          array("admin_AboutProcess", "Hakkımızda İşlemler"),
-          array("admin_EducatorInsert", "Örnek2 İşlemleri"),
-          array("admin_EducatorInsert", "Örnek3 İşlemleri")
+          array("admin_menuprocess", "Menü İşlemleri"),
+          array("admin_educator_insert", "Eğitmen İşlemleri"),
+          array("admin_education_process", "Ders İşlemleri"),
+          array("admin_aboutprocess", "Hakkımızda İşlemler"),
         );
 
         foreach ($menu_array1 as $array1) {
