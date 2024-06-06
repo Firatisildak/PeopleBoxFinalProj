@@ -158,16 +158,13 @@ include("views/normal_panel/navbar.php");
         <script>
           document.addEventListener("DOMContentLoaded", function() {
             var searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', function() {
-              var searchText = searchInput.value.toLowerCase();
-              var filteredItems = <?php echo json_encode($menuItems2); ?>.filter(function(item) {
-                return item.title.toLowerCase().includes(searchText);
-              });
+            var allItems = <?php echo json_encode($menuItems2); ?>;
 
+            function displayItems(items) {
               var resultContainer = document.getElementById('searchResults');
               resultContainer.innerHTML = ''; // Temizleme
 
-              filteredItems.forEach(function(item) {
+              items.forEach(function(item) {
                 var html = '<div class="row mt-5">' +
                   '<div class="col-md-4 col-4">' +
                   '<a href="education_detail.php?lesson_id=' + item.lesson_id + '&educator_id=' + item.educator_id + '"><img src="img/education_img/' + item.lessonimg + '" alt="logo" class="img-fluid"></a>' +
@@ -187,11 +184,24 @@ include("views/normal_panel/navbar.php");
 
                 resultContainer.innerHTML += html;
               });
+            }
+
+            // Sayfa yüklendiğinde tüm verileri göster
+            displayItems(allItems);
+
+            searchInput.addEventListener('input', function() {
+              var searchText = searchInput.value.toLowerCase();
+              var filteredItems = allItems.filter(function(item) {
+                return item.title.toLowerCase().includes(searchText);
+              });
+
+              displayItems(filteredItems);
             });
           });
         </script>
 
         <div id="searchResults"></div>
+
       </div>
     </div>
   </div>

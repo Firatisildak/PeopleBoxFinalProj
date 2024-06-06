@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--alt satır bizim bootstrap ile olan bağlantımızın css kısmını bağlıyor.-->
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="packets/bootstrap/bootstrap.css">
     <title>Document</title>
     <?php
     session_start();
-    include("inc/adminHead.php");
-    include("inc/database_Connection.php");
-    include("functions/routing.php");
-    include("MyClass.php");
+    include("views/admin_panel/admin_head.php");
+    include("libs/functions/database_connection.php");
+    include("libs/functions/user_all_func.php");
+    include("libs/myclass.php");
+
     if ($_SESSION["LoggedIn"] == true) {
         // alttaki if ve else if yapısı ile eğitimci ekleme silme ve güncelleme işlemi yapan fonksiyonu çağırıyorum.
         $educatorSql = new sqlProcess();
@@ -22,13 +23,13 @@
 
             $params = [$about_text];
             $params2 = [$about_Id];
-            $educatorSql->sqlsorgu('aboutSave', 'INSERT INTO about(aboutText) VALUES (?)', $params, 1, 'SELECT COUNT(*) FROM about WHERE aboutID = ?', $params2);
+            $educatorSql->sqlsorgu2('aboutSave', 'INSERT INTO about(aboutText) VALUES (?)', $params, 1, 'SELECT COUNT(*) FROM about WHERE aboutID = ?', $params2);
         } else if (isset($_POST['aboutDelete']) || isset($_POST['aboutUpdate'])) {
             $about_Id = $_POST["about_id_seconds"];
             $about_text = $_POST["about_text_seconds"]; //educator_name bu bizim buton ismimizdir.
             $params = [$about_text, $about_Id];
-            $educatorSql->sqlsorgu('aboutUpdate', 'UPDATE about SET aboutText=? WHERE  aboutID=?', $params, 0, 0, 0);
-            $educatorSql->sqlsorgu('aboutDelete', 'Delete from about WHERE aboutText=? AND aboutID=?', $params, 0, 0, 0);
+            $educatorSql->sqlsorgu2('aboutUpdate', 'UPDATE about SET aboutText=? WHERE  aboutID=?', $params, 0, 0, 0);
+            $educatorSql->sqlsorgu2('aboutDelete', 'Delete from about WHERE aboutText=? AND aboutID=?', $params, 0, 0, 0);
         }
     } else {
         goAndComeBack("admin_Login.php", 0, 1);
@@ -36,7 +37,7 @@
     //aşağıdakiyapı ile 1 saatlik oturum açılıyor.
     logoutAdmin();
     ?>
-    <link rel="stylesheet" href="./css/educationStyle.css">
+    <link rel="stylesheet" href="css/education_style.css">
     <!--alt satır font awesome ile bağlantıyı sağlıyor-->
     <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +115,7 @@
                         </tr>
                     </thead>
                     <?php
-                    include("inc/database_Connection.php");
+                     include("libs/functions/database_connection.php");
                     $menuItems = array();
                     //Alt'daki kod parçası bizim menüdeki kayıtlı verilerimizi getiriyor ve bu kodları bir foreach yapısı ile menülerin kayıt olduğu nav bar kısmındaki ilgili koda getiriyor.
                     $result = $db->query("SELECT * FROM about");
@@ -155,7 +156,7 @@
             });
         });
     </script>
-    <script src="bootstrap.js"></script>
+    <script src="packets/bootstrap/bootstrap.js"></script>
 </body>
 
 </html>
