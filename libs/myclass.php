@@ -64,6 +64,30 @@ class sqlProcess
             }
         }
     }
+    function sqlsorgu2($requestQuery, $query, $params, $choos = 0, $query2, $params2)
+    {
+        if (isset($_POST[$requestQuery])) {
+            global $db, $params, $kayitSayisi;
+            if ($choos != 0) {
+                //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
+                $sorgu = $db->prepare($query2);
+                $guncelle = $sorgu->execute(($params2));
+                $kayitSayisi = $sorgu->fetchColumn();
+                if ($kayitSayisi == 0) {
+                    $sorgu = $db->prepare($query);
+                    $guncelle = $sorgu->execute(($params));
+                }
+            } else {
+                $sorgu = $db->prepare($query);
+                $guncelle = $sorgu->execute(($params));
+            }
+            if ($guncelle) {
+                echo '<script>alert("işlem Başarılı.");</script>';
+            } else {
+                echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
+            }
+        }
+    }
     function sqlsorgu($requestQuery, $query, $params, $choos = 0, $query2, $params2)
     {
         if (isset($_POST[$requestQuery])) {
@@ -108,31 +132,6 @@ class sqlProcess
                 $sorgu = $db->prepare($query);
                 $guncelle = $sorgu->execute($params);
                 echo '<script>alert("İşlem Başarılı.");</script>';
-            } else {
-                echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
-            }
-        }
-    }
-
-    function sqlsorgu2($requestQuery, $query, $params, $choos = 0, $query2, $params2)
-    {
-        if (isset($_POST[$requestQuery])) {
-            global $db, $params, $kayitSayisi;
-            if ($choos != 0) {
-                //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
-                $sorgu = $db->prepare($query2);
-                $guncelle = $sorgu->execute(($params2));
-                $kayitSayisi = $sorgu->fetchColumn();
-                if ($kayitSayisi == 0) {
-                    $sorgu = $db->prepare($query);
-                    $guncelle = $sorgu->execute(($params));
-                }
-            } else {
-                $sorgu = $db->prepare($query);
-                $guncelle = $sorgu->execute(($params));
-            }
-            if ($guncelle) {
-                echo '<script>alert("işlem Başarılı.");</script>';
             } else {
                 echo '<script>alert("Bir hata oluştu, tekrar kontrol edin.");</script>';
             }
